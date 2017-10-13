@@ -13,8 +13,6 @@ let Subtracting = { Adding with Move = (fun startingpoint displacement ->
                                         (fst startingpoint - fst displacement, snd startingpoint - snd displacement))
 }
 
-
-
 //examples of using the record
 let myTrans = {StartingPoint = (1.0, 2.0); Move = (fun (a,b) (c,d) -> (a*c, b*d))};;
 let somePosition = myTrans.Move myTrans.StartingPoint (5.0, 5.0)
@@ -28,7 +26,3 @@ let finalPosition3 = Adding.Move (10.0, 10.0) (40.0, 50.0)
 
 //or we can chain them together
 let finalPosition4 = Adding.Move Adding.StartingPoint (Subtracting.Move (10.0, 10.0) (5.0, 5.0))
-
-
-
-
