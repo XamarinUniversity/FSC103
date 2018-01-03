@@ -11,7 +11,7 @@ open System.Runtime.InteropServices
 [<assembly: AssemblyConfiguration("")>]
 [<assembly: AssemblyCompany("Xamarin")>]
 [<assembly: AssemblyProduct("LabWorkspace")>]
-[<assembly: AssemblyCopyright("Copyright © Xamarin 2017")>]
+[<assembly: AssemblyCopyright("Copyright © 2018 Xamarin Inc., Microsoft.")>]
 [<assembly: AssemblyTrademark("")>]
 [<assembly: AssemblyCulture("")>]
 
