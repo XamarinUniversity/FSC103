@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>Exercise 3: Create a record type using tuples</title>
+    <link rel="stylesheet" type="text/css" href="./res/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./res/styles/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="./res/styles/styles.css">
+</head>
+
+<body>
+    <!-- Use the same title as the StartHere -->
+    <header>Data Structures</header>
+
+   
+<section id="main">
+  <h1 id="page-title"></h1>
+  <h2>Duration</h2>
+  <p>10 minutes</p>
+  <h2>Lab goals</h2>
+  <p>The primary goal of this lab is to create a record type using tuples in which we move the starting point using the <code>fst</code> and <code>snd</code> keywords.</p>
+  <ol>
+    <li>Create a record type which describes a tuple that contain two floats</li>
+    <li>Move the starting point of the tuple.</li>
+    <li>Create an instance of the record which adds the starting point to the adjustments.</li>
+    <li>Create a second instance of the record which subtracts the starting point to the adjustments.</li>
+  </ol>
+ 
+  <p><img class="indent-none" src="res/images/completed records.png" alt="---- Missing Image -----"/></p>
+
+  <h1>Steps</h1>
+  <h2>Create a record type using tuples and functions</h2>
+  <ol>
+    <li>Create a new F# library project and open the script.fsx file.</li>
+    <li>
+      Write a <a href="http://msdn.microsoft.com/en-us/library/dd233184.aspx">record type</a> that describes the following:    
+      <ul>
+        <li><code>StartingPoint</code>: a <a href="http://msdn.microsoft.com/en-us/library/dd233200.aspx">tuple</a> that contains two floats</li>
+        <li><code> Move</code>: a function that takes in a starting point and a tuple by which to move the starting point. It should return a result of an adjusted starting point of the tuple
+      </ul>
+    </li>
+  </ol>
+
+
+<p><a href="#" onclick="toggleCode(this,'step2');return false;" class="uiitem">Show Code</a><div id="step2" style="display:none;">
+    <pre class="prettyprint">
+type PointTransformations = {
+    StartingPoint : float * float
+    Move : float * float -> float * float -> float * float
+} </pre></div></p>
+
+  <ol start="3">
+      <li>
+        Create an instance of this record where <code>Move </code>adds the starting point to the adjustments.
+      </li>
+  </ol>
+    
+<p><a href="#" onclick="toggleCode(this,'step3');return false;" class="uiitem">Show Code</a>
+<div id="step3" style="display:none;">
+    <pre class="prettyprint">
+let Adding = {
+    StartingPoint = (1., 2.) 
+    Move = (fun startingpoint displacement ->  
+                (fst startingpoint + fst displacement, snd startingpoint + snd displacement))
+}</pre></div></p>
+
+  <ol start="4">
+    <li>
+      Create a second instance of this instance by copying the first, and modifying the function so that it subtracts the adjustments from the starting point.
+    </li>
+  </ol>
+ 
+ <p><a href="#" onclick="toggleCode(this,'step4');return false;" class="uiitem">Show Code</a>
+  <div id="step4" style="display:none;">
+    <pre class="prettyprint">
+let Subtracting = { Adding with Move = (fun startingpoint displacement ->  
+                                        (fst startingpoint - fst displacement, snd startingpoint - snd displacement))
+}
+</pre></div></p>
+
+    <h1>Summary</h1>
+    <p>
+      During this lab you have worked to create a record type using tuples, you then adjusted the starting point of that tuple and then wrote the functions to move the starting point and add and subtract based on adjustments made.
+    </p>
+    
+    <div class="align-right"> <a href="Start Here.html">Go Back</a> </div>
+</section>
+
+    <script src="./res/js/jquery.min.js"></script>
+    <script src="./res/js/prettify.js"></script>
+    <script src="./res/js/script.js"></script>
+
+    <footer>Copyright (C) 2018 Xamarin Inc., Microsoft.</footer>
+</body>
+</html>
